@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maestro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="fade-in">
+
+<!-- Звёзды -->
+<canvas id="stars"></canvas>
+
+<!-- Анимированный фон APNG -->
+<img src="animated_transparent_small.apng" class="full-apng" alt="animation">
+
+<div class="app">
+
+    <!-- Верхняя панель -->
+    <div class="top-bar">
+        <div class="left-box">
+            <div class="dot"></div>
+            <span class="mini-title">Maestro</span>
+        </div>
+
+        <div class="right-box">
+            <span class="online">ONLINE //</span>
+            <span id="time"></span>
+        </div>
+    </div>
+
+    <!-- Большой заголовок -->
+    <h1 class="main-title">Maestro</h1>
+
+    <!-- Первый текст -->
+    <p class="quote">что-то большее чем просто бот...</p>
+
+    <!-- Второй текст — компактная рамка + надпись 01/12 слева -->
+    <div class="shadow-block animate-frame">
+        <p class="block-index">01 / 12</p>
+        <p class="shadow-text">цифровая тень есть у каждого, а мы умеем читать ее без остатка</p>
+    </div>
+
+    <!-- Кнопки -->
+    <div class="buttons">
+        <button class="btn">Функционал</button>
+        <button class="btn">ОТЗЫВЫ</button>
+    </div>
+
+    <!-- Переход на новую страницу -->
+    <a class="privacy-link fade-link" href="privacy.html">Политика конфиденциальности</a>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
