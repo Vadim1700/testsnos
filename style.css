@@ -103,16 +103,16 @@ body {
   margin-bottom: clamp(5px, 2vw, 12px);
 }
 
-/* Рамка */
 .shadow-block {
   border: 1px solid var(--white);
-  padding: clamp(6px, 2vw, 12px);
+  padding: 6px 10px; /* компактные отступы */
   border-radius: 6px;
-  width: 100%;
-  box-sizing: border-box;
+  display: inline-block; /* ← РАМКА ПО РАЗМЕРУ ТЕКСТА */
   margin-bottom: clamp(15px, 3vw, 25px);
   position: relative;
+  max-width: 100%; /* чтобы не вылезало на маленьких экранах */
 }
+
 
 /* 01/12 */
 .block-index {
@@ -120,7 +120,7 @@ body {
   color: var(--gray);
   position: absolute;
   left: clamp(6px, 2vw, 12px);
-  top: clamp(2px, 1vw, 6px);
+  top: clamp(-8px, 1vw, -10px);
 }
 
 /* Текст в рамке */
