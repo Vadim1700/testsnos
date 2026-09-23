@@ -30,7 +30,7 @@ body {
   pointer-events: none;
 }
 
-/* Маска для читаемости */
+/* Маска */
 .bg-mask {
   position: fixed;
   top: 0;
@@ -53,9 +53,11 @@ body {
 
 /* Контейнер — адаптивный */
 .app {
-  width: min(100%, 600px);
+  width: 100%;
+  max-width: 600px;
   margin: auto;
   padding: clamp(10px, 4vw, 30px);
+  box-sizing: border-box;
 }
 
 /* Верхняя панель */
@@ -127,7 +129,7 @@ body {
   margin-top: clamp(12px, 2vw, 18px);
 }
 
-/* Кнопки */
+/* Кнопки — адаптивные */
 .buttons {
   width: 100%;
   display: flex;
@@ -137,6 +139,7 @@ body {
 
 .btn {
   width: 100%;
+  max-width: 100%; /* кнопка никогда не выходит */
   padding: clamp(10px, 3vw, 22px);
   font-size: clamp(14px, 4vw, 26px);
   font-weight: bold;
@@ -146,6 +149,7 @@ body {
   border-radius: clamp(6px, 2vw, 12px);
   cursor: pointer;
   transition: 0.25s;
+  box-sizing: border-box;
 }
 
 .btn:hover {
