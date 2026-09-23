@@ -4,14 +4,9 @@
   --gray: #bfbfbf;
 }
 
-/* Эффект затемнения */
-body.fade-in {
-  animation: fadeIn 0.7s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Глобальная адаптация */
+html {
+  font-size: calc(12px + 0.4vw);
 }
 
 body {
@@ -22,136 +17,133 @@ body {
   color: var(--white);
 }
 
+/* Фон APNG */
+.full-apng {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Маска для читаемости */
+.bg-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* Звёзды */
 #stars {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -3;
 }
 
+/* Контейнер — адаптивный */
 .app {
-  width: 100%;
-  max-width: 450px;
-  padding: 20px;
+  width: min(100%, 600px);
   margin: auto;
+  padding: clamp(10px, 4vw, 30px);
 }
 
 /* Верхняя панель */
 .top-bar {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: clamp(10px, 3vw, 20px);
 }
 
 .left-box {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(6px, 2vw, 12px);
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: clamp(6px, 2vw, 10px);
+  height: clamp(6px, 2vw, 10px);
   background: var(--white);
   border-radius: 50%;
 }
 
-/* Название и время — серые */
-.mini-title {
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--gray);
-}
-
-.online {
-  color: var(--gray);
-}
-
+.mini-title,
+.online,
 #time {
+  font-size: clamp(10px, 2.5vw, 16px);
   color: var(--gray);
 }
 
 /* Заголовок */
 .main-title {
   text-align: center;
-  font-size: clamp(65px, 15vw, 95px);
-  margin-bottom: 5px;
-  color: var(--white);
-  text-shadow:
-      0 0 3px var(--white),
-      0 0 8px rgba(255,255,255,0.4);
+  font-size: clamp(40px, 12vw, 110px);
+  margin-bottom: clamp(5px, 2vw, 15px);
+  text-shadow: 0 0 3px var(--white), 0 0 8px rgba(255,255,255,0.4);
 }
 
-/* Первый текст — меньше, левее, ближе к заголовку */
+/* Первый текст */
 .quote {
   text-align: left;
-  font-size: clamp(8px, 2.5vw, 12px);
-  margin-bottom: 8px;
-  margin-left: 2px;
+  font-size: clamp(10px, 2.5vw, 16px);
+  margin-left: clamp(2px, 1vw, 8px);
+  margin-bottom: clamp(5px, 2vw, 12px);
 }
 
-/* Рамка второго текста */
+/* Рамка */
 .shadow-block {
   border: 1px solid var(--white);
-  padding: 5px 8px;
+  padding: clamp(6px, 2vw, 12px);
   border-radius: 6px;
-  text-align: center;
-  margin-bottom: 20px;
-  width: 88%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: clamp(15px, 3vw, 25px);
   position: relative;
 }
 
-/* Надпись 01/12 — слева, компактная, отступ от текста */
+/* 01/12 */
 .block-index {
-  font-size: 10px;
+  font-size: clamp(10px, 2.5vw, 14px);
   color: var(--gray);
   position: absolute;
-  left: 8px;
-  top: -2px;
+  left: clamp(6px, 2vw, 12px);
+  top: clamp(2px, 1vw, 6px);
 }
 
-/* Анимация появления рамки */
-.animate-frame {
-  animation: frameAppear 0.8s ease;
-}
-
-@keyframes frameAppear {
-  from {
-    transform: scale(0.85);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
+/* Текст в рамке */
 .shadow-text {
-  font-size: clamp(9px, 2.5vw, 12px);
-  color: var(--white);
-  margin-top: 14px; /* отступ от 01/12 */
+  font-size: clamp(10px, 2.5vw, 16px);
+  margin-top: clamp(12px, 2vw, 18px);
 }
 
 /* Кнопки */
 .buttons {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: clamp(10px, 3vw, 20px);
 }
 
 .btn {
   width: 100%;
-  padding: 18px;
-  font-size: clamp(18px, 4vw, 24px);
+  padding: clamp(10px, 3vw, 22px);
+  font-size: clamp(14px, 4vw, 26px);
   font-weight: bold;
   background: transparent;
   border: 2px solid var(--white);
   color: var(--white);
-  border-radius: 10px;
+  border-radius: clamp(6px, 2vw, 12px);
   cursor: pointer;
   transition: 0.25s;
 }
@@ -161,173 +153,68 @@ body {
   box-shadow: 0 0 12px var(--white);
 }
 
-/* Ссылка на политику — без подчёркивания */
+/* Политика */
 .privacy-link {
   display: block;
   text-align: center;
-  margin-top: 25px;
-  font-size: 16px;
+  margin-top: clamp(15px, 3vw, 25px);
+  font-size: clamp(14px, 3vw, 20px);
   color: var(--white);
   text-decoration: none;
   transition: 0.25s;
 }
 
 .privacy-link:hover {
-  color: #4da6ff; /* мягкий синий */
+  color: #4da6ff;
   text-shadow: 0 0 8px #4da6ff;
 }
 
-
-/* Заголовок — адаптивный, не вылезает */
-.privacy-title {
-  text-align: center;
-  font-size: clamp(22px, 7vw, 36px); /* уменьшено и адаптивно */
-  margin-bottom: 15px;
-  color: var(--white);
-  word-wrap: break-word;
-  line-height: 1.2;
-}
-
-.privacy-text {
-  text-align: center;
-  font-size: clamp(14px, 4vw, 18px);
-  margin-bottom: 30px;
-}
-
-/* Фиксированная кнопка назад */
-.back-btn-fixed {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 20px;
-  border: 2px solid var(--white);
-  border-radius: 10px;
-  color: var(--white);
-  text-decoration: none;
-  font-size: 20px;
-  background: transparent;
-  transition: 0.25s;
-}
-
-.back-btn-fixed:hover {
-  background: rgba(255,255,255,0.15);
-  box-shadow: 0 0 12px var(--white);
-}
-
-/* Полноэкранный APNG-фон */
-.full-apng {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;      /* на всю ширину */
-  height: 100vh;     /* на всю высоту */
-  object-fit: cover; /* растягивается красиво */
-  z-index: 0;        /* под текстом, над звёздами */
-  opacity: 0.55;     /* лёгкая прозрачность */
-  pointer-events: none; /* не мешает кликам */
-}
-
-/* Звёзды — самый нижний слой */
-#stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.privacy-block {
-  margin-top: 10px;
-  text-align: left;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.privacy-subtitle {
-  font-size: 16px;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-
-.privacy-list {
-  margin: 5px 0 10px 15px;
-  padding: 0;
-}
-
-.privacy-list li {
-  margin-bottom: 4px;
-}
-
-/* Фон под текстом политики */
+/* Страница политики */
 .privacy-bg {
   background: rgba(0, 0, 0, 0.55);
   border: 1px solid rgba(255,255,255,0.25);
-  padding: 18px;
+  padding: clamp(12px, 3vw, 22px);
   border-radius: 12px;
   backdrop-filter: blur(4px);
-  margin-top: 20px;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Заголовок — адаптивный, не вылезает */
 .privacy-title {
   text-align: center;
-  font-size: clamp(22px, 7vw, 36px); /* уменьшено и адаптивно */
-  margin-bottom: 15px;
-  color: var(--white);
-  word-wrap: break-word;
+  font-size: clamp(22px, 7vw, 36px);
+  margin-bottom: clamp(10px, 3vw, 20px);
   line-height: 1.2;
 }
 
-/* Контейнер текста — ограничение ширины */
 .privacy-block {
-  margin-top: 10px;
-  text-align: left;
-  font-size: clamp(12px, 3.5vw, 15px); /* адаптивный текст */
+  font-size: clamp(12px, 3.5vw, 16px);
   line-height: 1.5;
-  max-width: 100%;
   overflow-wrap: break-word;
-  word-break: break-word;
 }
 
-/* Подзаголовки */
 .privacy-subtitle {
-  font-size: clamp(14px, 4vw, 18px);
-  margin-top: 15px;
-  margin-bottom: 5px;
-  color: var(--white);
-  line-height: 1.3;
-}
-
-/* Список */
-.privacy-list {
-  margin: 5px 0 10px 15px;
-  padding: 0;
-  max-width: 100%;
+  font-size: clamp(14px, 4vw, 20px);
+  margin-top: clamp(10px, 3vw, 20px);
 }
 
 .privacy-list li {
-  margin-bottom: 4px;
-  font-size: clamp(12px, 3.5vw, 15px);
-  overflow-wrap: break-word;
+  font-size: clamp(12px, 3.5vw, 16px);
 }
 
-/* Кнопка назад — больше */
+/* Кнопка назад */
 .back-btn-fixed {
   position: fixed;
-  bottom: 20px;
+  bottom: clamp(10px, 3vw, 25px);
   left: 50%;
   transform: translateX(-50%);
-  padding: 18px 30px; /* увеличено */
+  padding: clamp(12px, 3vw, 26px);
+  border-radius: clamp(8px, 2vw, 14px);
+  font-size: clamp(16px, 4vw, 26px);
+  background: rgba(0,0,0,0.4);
   border: 2px solid var(--white);
-  border-radius: 12px;
   color: var(--white);
   text-decoration: none;
-  font-size: clamp(18px, 5vw, 24px); /* адаптивно */
-  background: rgba(0,0,0,0.4);
   transition: 0.25s;
 }
 
